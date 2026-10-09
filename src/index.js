@@ -46,7 +46,6 @@ async function fetchFeed(source, query) {
 }
 
 async function news() {
-
   return [{
     source: "Reuters",
     title: "TEST HEADLINE",
@@ -54,6 +53,8 @@ async function news() {
     published: new Date().toISOString(),
     tone: "Watch"
   }];
+}
+``
 
 } {
   const settled = await Promise.allSettled(SOURCES.map(([s, q]) => fetchFeed(s, q)));
