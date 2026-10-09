@@ -69,7 +69,7 @@ document.querySelector('#refresh').onclick=load;load();setInterval(load,3600000)
 export default {
   async fetch(request) {
     const url = new URL(request.url);
-    if (url.pathname === "/api/news") {
+    if (url.pathname === "/debug") {
       const data = { updatedAt: new Date().toISOString(), news: await news() };
       return Response.json(data, { headers: { "Cache-Control": "public, max-age=300" } });
     }
