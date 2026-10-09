@@ -46,6 +46,16 @@ async function fetchFeed(source, query) {
 }
 
 async function news() {
+
+  return [{
+    source: "Reuters",
+    title: "TEST HEADLINE",
+    link: "https://www.reuters.com",
+    published: new Date().toISOString(),
+    tone: "Watch"
+  }];
+
+} {
   const settled = await Promise.allSettled(SOURCES.map(([s, q]) => fetchFeed(s, q)));
   const items = settled.flatMap(x => x.status === "fulfilled" ? x.value : []);
   const seen = new Set();
