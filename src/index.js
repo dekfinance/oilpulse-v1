@@ -54,17 +54,11 @@ async function news() {
     tone: "Watch"
   }];
 }
-``
 
-} {
-  const settled = await Promise.allSettled(SOURCES.map(([s, q]) => fetchFeed(s, q)));
-  const items = settled.flatMap(x => x.status === "fulfilled" ? x.value : []);
-  const seen = new Set();
-  return items.filter(x => {
-    const key = x.title.toLowerCase().replace(/\s+-\s+[^-]+$/, "");
-    if (seen.has(key)) return false;
-    seen.add(key); return true;
-  }).sort((a, b) => new Date(b.published) - new Date(a.published)).slice(0, 10);
+const page = `
+<!doctype html>
+...
+`
 }
 
 const page = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#071723"><title>Oil Pulse V2</title><style>
